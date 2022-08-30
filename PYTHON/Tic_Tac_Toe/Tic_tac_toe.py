@@ -74,7 +74,8 @@ def play():
                 break
             turn, player_1 = move_player(player_characters[0])
             while turn in player_moves:
-                while not (str(turn).isdigit()) or turn not in range(1, 10) or turn in player_moves:
+                while not ((str(turn).isdigit()) or turn not in range(1, 10)
+                           or turn in player_moves):
                     if turn not in range(1, 10):
                         print(
                             "The number hast to be in range 1-9")
@@ -98,7 +99,8 @@ def play():
                 break
             turn, player_2 = move_player(player_characters[1])
             while turn in player_moves:
-                while not (str(turn).isdigit()) or turn not in range(1, 10) or turn in player_moves:
+                while not ((str(turn).isdigit()) or turn not in range(1, 10)
+                           or turn in player_moves):
                     if turn not in range(1, 10):
                         print("The number hast to be in range 1-9")
                     if turn in player_moves:
