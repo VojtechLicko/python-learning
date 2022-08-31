@@ -58,21 +58,22 @@ def fb_start_up():
     error = True
     import time
 
-
-
-    from selenium.webdriver.common.by import By
     from selenium import webdriver
     from selenium.common.exceptions import NoSuchElementException
     from selenium.webdriver.chrome import service
-    from Encrypting_lib import write_key_1, write_key_2, write_key_3, load_key_1, \
-        load_key_2, load_key_3, encrypt, decrypt
+    from selenium.webdriver.common.by import By
+
+    from Encrypting_lib import (decrypt, encrypt, load_key_1, load_key_2,
+                                load_key_3, write_key_1, write_key_2,
+                                write_key_3)
 
     # Expedition function
     def expedition():
         # the expedtion
         try:
             time.sleep(3)
-            driver.find_element(By.XPATH, "/html/body/div[1]/div/div[4]/div[8]/a")
+            driver.find_element(
+                By.XPATH, "/html/body/div[1]/div/div[4]/div[8]/a")
             time.sleep(2)
             cooldown_bar_e = False
         except NoSuchElementException:
@@ -90,10 +91,14 @@ def fb_start_up():
             time.sleep(2)
 
             class ExpeditionOpponents:
-                expedition_1 = driver.find_element_by_xpath("//div[@id='main_inner']//div[1]//div[2]//button[1]")
-                expedition_2 = driver.find_element_by_xpath("//div[@id='main_inner']//div[1]//div[2]//button[1]")
-                expedition_3 = driver.find_element_by_xpath("//div[@id='main_inner']//div[1]//div[2]//button[1]")
-                expedition_4 = driver.find_element_by_xpath("//div[@id='main_inner']//div[1]//div[2]//button[1]")
+                expedition_1 = driver.find_element_by_xpath(
+                    "//div[@id='main_inner']//div[1]//div[2]//button[1]")
+                expedition_2 = driver.find_element_by_xpath(
+                    "//div[@id='main_inner']//div[1]//div[2]//button[1]")
+                expedition_3 = driver.find_element_by_xpath(
+                    "//div[@id='main_inner']//div[1]//div[2]//button[1]")
+                expedition_4 = driver.find_element_by_xpath(
+                    "//div[@id='main_inner']//div[1]//div[2]//button[1]")
 
             time.sleep(3)
 
@@ -138,15 +143,18 @@ def fb_start_up():
             dungeon_loc.click()
             time.sleep(2)
             try:
-                beginner = driver.find_element_by_xpath("//input[@value='Normální']")
-                advanced = driver.find_element_by_xpath("//input[@value='Pokročilý']")
+                beginner = driver.find_element_by_xpath(
+                    "//input[@value='Normální']")
+                advanced = driver.find_element_by_xpath(
+                    "//input[@value='Pokročilý']")
                 if dungeon_difficulty == "advanced":
                     advanced.click()
                 elif dungeon_difficulty == "beginner":
                     beginner.click()
             except NoSuchElementException:
                 ""
-            dungeon_opponent = driver.find_element_by_xpath('//img[@src="9379/img/combatloc.gif"]')
+            dungeon_opponent = driver.find_element_by_xpath(
+                '//img[@src="9379/img/combatloc.gif"]')
             time.sleep(5)
             dungeon_opponent.click()
 
@@ -225,16 +233,19 @@ def fb_start_up():
     # Here we basically start opera
     # Later on I will want to get to know where do they have the driver without knowing the exact location before.
     # and probably know their username
-    webdriver_service = service.Service('C:\\Users\\vojta\\OneDrive\\Dokumenty\\chromedriver.exe')
+    webdriver_service = service.Service(
+        'C:\\Users\\vojta\\OneDrive\\Dokumenty\\chromedriver.exe')
     webdriver_service.start()
-    driver = webdriver.Remote(webdriver_service.service_url, webdriver.DesiredCapabilities.CHROME)
+    driver = webdriver.Remote(
+        webdriver_service.service_url, webdriver.DesiredCapabilities.CHROME)
     driver.get('https://s36-cz.gladiatus.gameforge.com/game/index.php')
     # With this part of code we handle the error when it does not have enough time so it does not find the element
     time.sleep(2)
     driver.maximize_window()
     # Here you tell the driver to click the facebook login icon
     # and u tell him beforehand what is the main window
-    facebook_login = driver.find_element_by_class_name("facebook-login-button-icon")
+    facebook_login = driver.find_element_by_class_name(
+        "facebook-login-button-icon")
     time.sleep(2)
     # Here you switch from the main window to the popup window
     parent_window = driver.current_window_handle
@@ -266,7 +277,8 @@ def fb_start_up():
     time.sleep(5)
     # window_before = driver.window_handles[0] (If i want to use this part of code I would have to have problem, when
     # I want to reuse the first window after I switched to the second)
-    first_acc_bttn = driver.find_element_by_xpath("//div[@class='rt-tr-group open']//span[normalize-space()='Hrát']")
+    first_acc_bttn = driver.find_element_by_xpath(
+        "//div[@class='rt-tr-group open']//span[normalize-space()='Hrát']")
     first_acc_bttn.click()
     window_after = driver.window_handles[1]
     time.sleep(2)
@@ -275,7 +287,8 @@ def fb_start_up():
     # Here I am trying to handle the error when it stops on loading screen
     try:
         time.sleep(2)
-        driver.find_element_by_class_name('sk-spinner center-spinner ball-grid-pulse')
+        driver.find_element_by_class_name(
+            'sk-spinner center-spinner ball-grid-pulse')
     except NoSuchElementException:
         error = True
     if error is False:
