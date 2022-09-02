@@ -50,7 +50,6 @@ class Hand():
         if current_card.value == 11 and (self.value + 11) > 21:
             self.aces += 1
             self.value += 1
-            # print("Ace found, value adjusted")
         else:
             self.value += current_card.value
         self.cards.append(current_card)
