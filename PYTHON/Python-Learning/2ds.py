@@ -14,9 +14,3 @@ print(number_grid[2][1])
 for row in number_grid:
     for numbers in row:
         print({numbers}, " this is that".format(numbers))
-
-me = True
-if me:
-        print("není pravda")
-else:
-    print("Je pravda")

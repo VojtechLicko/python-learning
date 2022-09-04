@@ -25,9 +25,8 @@ print(x)
 file_name = "the document"  # here i put my file
 
 if os.path.isfile(file_name):
-
+    # This is the best practice because it will automatically save the file
     with open("the document", "type in which i open the document") as file:
         print(file.read())  # will show u the content of the file
 else:
     print(f"file {file_name} does not exist.")
-

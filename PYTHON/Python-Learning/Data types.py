@@ -70,7 +70,7 @@ txt = "The best things in life are free!"
 print("free is in text " if "free" in txt else "")
 print("free" in txt)
 
-txt = "The best things in life are free!"
+txt = "The best things in life are expensive!"
 print("expensive" not in txt)
 
-print("expensive is not in the text " if "expensive" not in txt else"")
+print("expensive is not in the text " if "expensive" not in txt else "expensive is in text")
