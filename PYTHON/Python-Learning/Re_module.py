@@ -58,6 +58,6 @@ test_phrase = 'This is a string! But it has punctuation. How can!!!!!!!\
 clean = (re.findall('[^!.? ]+', test_phrase))
 print(' '.join(clean))
 
-text = 'Only find the hypen-words in this sentence. But you do not know how\
- long-ish they are'
-print(re.findall(r'[\w]+-[\w]+', text))
+text = "Only find the hypen-words in this sentence. But you do not know how\
+ long-ish they are"
+print(re.findall(r"[\w]+-[\w]+", text))
