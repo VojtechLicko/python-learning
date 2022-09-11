@@ -11,7 +11,7 @@ authors = soup.select(".author")
 for i, author in enumerate(authors):
     all_authors.append(soup.select(".author")[i].getText())
 
-all_unique_authors = (set(all_authors))
+all_unique_authors = set(all_authors)
 print(all_unique_authors)
 
 all_quotes = []

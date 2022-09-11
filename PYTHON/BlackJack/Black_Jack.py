@@ -1,14 +1,39 @@
 from random import shuffle
 
-suits = ('Hearts', 'Diamonds', 'Spades', 'Clubs')
-ranks = ('Two', 'Three', 'Four', 'Five', 'Six', 'Seven',
-         'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace')
-values = {'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7,
-          'Eight': 8, 'Nine': 9, 'Ten': 10, 'Jack': 10, 'Queen': 10,
-          'King': 10, 'Ace': 11}
+suits = ("Hearts", "Diamonds", "Spades", "Clubs")
+ranks = (
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+    "Ten",
+    "Jack",
+    "Queen",
+    "King",
+    "Ace",
+)
+values = {
+    "Two": 2,
+    "Three": 3,
+    "Four": 4,
+    "Five": 5,
+    "Six": 6,
+    "Seven": 7,
+    "Eight": 8,
+    "Nine": 9,
+    "Ten": 10,
+    "Jack": 10,
+    "Queen": 10,
+    "King": 10,
+    "Ace": 11,
+}
 
 
-class Card():
+class Card:
     def __init__(self, suit, rank) -> None:
         self.suit = suit
         self.rank = rank
@@ -18,7 +43,7 @@ class Card():
         return f"{self.rank} of {self.suit}"
 
 
-class Deck():
+class Deck:
     def __init__(self) -> None:
         self.deck = []
         for suit in suits:
@@ -39,7 +64,7 @@ class Deck():
         return self.deck.pop()
 
 
-class Hand():
+class Hand:
     def __init__(self) -> None:
         self.cards = []
         self.aces = 0
@@ -61,18 +86,18 @@ class Hand():
         return all_cards_hand
 
 
-class Chips():
+class Chips:
     def __init__(self, starting_amount) -> None:
         self.starting_amount = starting_amount
 
     def bet_chips(self):
         while True:
             try:
-                bet_amount = int(
-                    input("Enter the amount you would like to bet :"))
+                bet_amount = int(input("Enter the amount you would like to bet :"))
                 if bet_amount > self.starting_amount:
                     print(
-                        "U have to enter a bet amount that is less than your current balance")
+                        "U have to enter a bet amount that is less than your current balance"
+                    )
                     raise TypeError
                 break
             except ValueError:
@@ -161,7 +186,8 @@ while True:
     while True:
         try:
             chip_amount = int(
-                input("Enter the amount of chips you would like to start with :"))
+                input("Enter the amount of chips you would like to start with :")
+            )
             break
         except ValueError:
             print("U have to enter whole number")

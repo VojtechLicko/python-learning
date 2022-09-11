@@ -1,5 +1,5 @@
-def hello(name='Jose'):
-    return 'Hello ' + name
+def hello(name="Jose"):
+    return "Hello " + name
 
 
 # Here we create a copy of the function
@@ -7,11 +7,11 @@ greet = hello
 print(greet())
 
 
-def hello(name='Jose'):
-    print('The hello() function has been executed')
+def hello(name="Jose"):
+    print("The hello() function has been executed")
 
     def greet():
-        return '\t This is inside the greet() function'
+        return "\t This is inside the greet() function"
 
     def welcome():
         return "\t This is inside the welcome() function"
@@ -24,15 +24,14 @@ def hello(name='Jose'):
 hello()
 
 
-def hello(name='Jose'):
-
+def hello(name="Jose"):
     def greet():
-        return '\t This is inside the greet() function'
+        return "\t This is inside the greet() function"
 
     def welcome():
         return "\t This is inside the welcome() function"
 
-    if name == 'Jose':
+    if name == "Jose":
         return greet
     else:
         return welcome
@@ -44,12 +43,12 @@ print(x())
 
 
 def hello():
-    return 'Hi Jose!'
+    return "Hi Jose!"
 
 
 def other(func):
     print(3 * "\n")
-    print('Other code would go here')
+    print("Other code would go here")
     print(func())
 
 
@@ -57,7 +56,6 @@ other(hello)
 
 
 def new_decorator(original_func):
-
     def wrap_func():
         print("Some extra code before the original fucntion")
         original_func()
@@ -70,10 +68,10 @@ def func_needs_decorator():
     print("I want to be decorated!!")
 
 
-print(2*"\n")
+print(2 * "\n")
 decorated_func = new_decorator(func_needs_decorator)
 decorated_func()
-print(2*"\n")
+print(2 * "\n")
 
 
 @new_decorator
@@ -92,7 +90,7 @@ def uppercase_decorator(function):
 
 @uppercase_decorator
 def say_hi():
-    return 'hello there'
+    return "hello there"
 
 
 print(5 * "\n")
@@ -120,6 +118,7 @@ print(my_function)
 def decorator_factory(argument):
     def your_decorator(function):
         return function.upper()
+
     return your_decorator
 
 

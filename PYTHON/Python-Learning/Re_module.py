@@ -25,8 +25,8 @@ import re
 
 # print(help(re))
 text = "The person's phone number is 408-555-1234. Call soon!"
-print('phone' in text)
-pattern = 'phone'
+print("phone" in text)
+pattern = "phone"
 print(re.search(pattern, text))
 # . is wildcard character in this module
 # r stands for raw so python knows that
@@ -52,11 +52,11 @@ print(results.group(1))
 # u can exclude certain characters and stuff, if u need to
 # just look up documentation
 phrase = "there are 3 numbers 34 inside 5 this sentence."
-print(re.findall(r'[^\d]', phrase))
-test_phrase = 'This is a string! But it has punctuation. How can!!!!!!!\
-     we remove it?'
-clean = (re.findall('[^!.? ]+', test_phrase))
-print(' '.join(clean))
+print(re.findall(r"[^\d]", phrase))
+test_phrase = "This is a string! But it has punctuation. How can!!!!!!!\
+     we remove it?"
+clean = re.findall("[^!.? ]+", test_phrase)
+print(" ".join(clean))
 
 text = "Only find the hypen-words in this sentence. But you do not know how\
  long-ish they are"

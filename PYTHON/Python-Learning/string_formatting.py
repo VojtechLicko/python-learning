@@ -1,7 +1,9 @@
 print(0.1 + 0.2 - 0.3)
-print("I'm the {}".format('man'))
-print("who is the {0} or {1}".format('man', 'woman'))
-print('Am i {j} or am I {b} well I think I am {s}'.format(j='jello', b="brain", s="sad"))
+print("I'm the {}".format("man"))
+print("who is the {0} or {1}".format("man", "woman"))
+print(
+    "Am i {j} or am I {b} well I think I am {s}".format(j="jello", b="brain", s="sad")
+)
 print(100 / 777)
 result = 100 / 777
 #                 value:width.precision
@@ -60,8 +62,8 @@ print(list(range(0, 11, 2)))
 # enumerate
 index_count = 0
 
-for let in 'abcde':
-    print(f'At index{index_count} the letter is {let}')
+for let in "abcde":
+    print(f"At index{index_count} the letter is {let}")
     index_count += 1
 
 word = "abcde"

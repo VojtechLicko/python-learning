@@ -24,7 +24,7 @@ print(my_num)
 
 print("It is rainy outside today " + str(my_num))
 
-my_num_2 = - 6
+my_num_2 = -6
 print(abs(my_num_2))
 # abs stands for absolute value
 print(pow(4, 5))
@@ -50,7 +50,7 @@ print(11_11_11)  # underscores in numeric literals to improve readability
 print(0o123)  # with 0o prefix
 # using hexadecimals in python
 print(0x123)  # with 0x prefix
-print(type(4.))  # is basically the same as 4.0
+print(type(4.0))  # is basically the same as 4.0
 
 # Take, for example, the speed of light, expressed in meters per second. Written directly it would look like this:
 # 300000000.
@@ -79,9 +79,9 @@ print(num)
 # using scientific notation in python
 #  e and E when using numbers means exponent
 # when using E the number that comes after it means how many times do u want to put the first number to the power of ten
-print(3E1)
-print(3E10)
+print(3e1)
+print(3e10)
 # u can use this both in positive numbers and negative numbers
-print(6.62607E-34)
-print(2 ** 2 ** 3)
-print(1/1)
+print(6.62607e-34)
+print(2**2**3)
+print(1 / 1)

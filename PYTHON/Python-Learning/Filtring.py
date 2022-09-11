@@ -1,13 +1,13 @@
 # Checks if element in something iterable like a list  with help of function returns true or false value
 # list of letters
-letters = ['a', 'b', 'd', 'e', 'i', 'j', 'o']
+letters = ["a", "b", "d", "e", "i", "j", "o"]
 
 
 # function that filters vowels
 def filterVowels(letter):
-    vowels = ['a', 'e', 'i', 'o', 'u']
+    vowels = ["a", "e", "i", "o", "u"]
 
-    if (letter in vowels):
+    if letter in vowels:
         return True
     else:
         return False
@@ -15,6 +15,6 @@ def filterVowels(letter):
 
 filteredVowels = filter(filterVowels, letters)
 
-print('The filtered vowels are:')
+print("The filtered vowels are:")
 for vowel in filteredVowels:
     print(vowel)

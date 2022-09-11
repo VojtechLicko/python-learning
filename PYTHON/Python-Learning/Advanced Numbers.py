@@ -9,7 +9,12 @@ print(bin(12648430))
 # The function pow() takes two arguments, equivalent to x^y.
 # With three arguments it is equivalent to (x^y)%z,
 # but may be more efficient for long integers.
-print(pow(2, 4,))
+print(
+    pow(
+        2,
+        4,
+    )
+)
 
 
 # Absolute value

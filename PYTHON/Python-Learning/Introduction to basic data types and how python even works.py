@@ -89,6 +89,3 @@ school = 55
 
 # If i hover my mouse over a variable in python it will show its type , I can also do the same thing with type() method
 # Also in python u can use negative index so it starts from the end of the string
-
-
-

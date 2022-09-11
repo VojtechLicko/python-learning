@@ -1,17 +1,17 @@
 import random
 
 
-class Player():
+class Player:
     def __init__(self) -> None:
         pass
 
     def move_player(self, player_char):
         player_turn = "not a digit"
-        while (not (str(player_turn).isdigit()) and
-               player_turn not in range(1, 10)):
+        while not (str(player_turn).isdigit()) and player_turn not in range(1, 10):
             try:
                 player_turn = int(
-                    input(f"Player {player_char} enter your move (1-9) : "))
+                    input(f"Player {player_char} enter your move (1-9) : ")
+                )
             except ValueError:
                 print("U have to enter a digit")
             if player_turn not in range(1, 10):
@@ -19,15 +19,24 @@ class Player():
         return player_turn, player_char
 
 
-class Board():
+class Board:
     player_moves = []
 
     def __init__(self) -> None:
         pass
 
     def create_board(self):
-        board = ["   7   ", "   8   ", "   9   ", "   4   ",
-                 "   5   ", "   6   ", "   1   ", "   2   ", "   3   "]
+        board = [
+            "   7   ",
+            "   8   ",
+            "   9   ",
+            "   4   ",
+            "   5   ",
+            "   6   ",
+            "   1   ",
+            "   2   ",
+            "   3   ",
+        ]
         return board
 
     def update_board(self, board, move, player):
@@ -38,24 +47,23 @@ class Board():
     def print_board(self, board):
         print(100 * "\n")
         print("Current state of board is :")
-        print(board[0] + "|" + board[1]
-              + "|" + board[2])
+        print(board[0] + "|" + board[1] + "|" + board[2])
         print("--------------------")
-        print(board[3] + "|" + board[4]
-              + "|" + board[5])
+        print(board[3] + "|" + board[4] + "|" + board[5])
         print("--------------------")
-        print(board[6] + "|" + board[7]
-              + "|" + board[8])
+        print(board[6] + "|" + board[7] + "|" + board[8])
 
     def check_win_conditions(self, board):
-        return ((board[0] == board[1] == board[2]) or
-                (board[3] == board[4] == board[5]) or
-                (board[6] == board[7] == board[8]) or
-                (board[0] == board[4] == board[8]) or
-                (board[2] == board[4] == board[6]) or
-                (board[0] == board[3] == board[6]) or
-                (board[1] == board[4] == board[7]) or
-                (board[2] == board[5] == board[8]))
+        return (
+            (board[0] == board[1] == board[2])
+            or (board[3] == board[4] == board[5])
+            or (board[6] == board[7] == board[8])
+            or (board[0] == board[4] == board[8])
+            or (board[2] == board[4] == board[6])
+            or (board[0] == board[3] == board[6])
+            or (board[1] == board[4] == board[7])
+            or (board[2] == board[5] == board[8])
+        )
 
     def check_tie_condition(self, player_moves):
         if len(player_moves) == 9:
@@ -81,23 +89,29 @@ def play():
             player_moves = []
             turn_p1, p1_char = p1.move_player(player_characters[0])
             while turn_p1 in player_moves:
-                while not ((str(turn_p1).isdigit()) or turn_p1
-                           not in range(1, 10) or turn_p1 in player_moves):
+                while not (
+                    (str(turn_p1).isdigit())
+                    or turn_p1 not in range(1, 10)
+                    or turn_p1 in player_moves
+                ):
                     if turn_p1 not in range(1, 10):
-                        print(
-                            "The number hast to be in range 1-9")
+                        print("The number hast to be in range 1-9")
                     if turn_p1 in player_moves:
-                        print("This move has already been played,\
-                        enter a new one")
+                        print(
+                            "This move has already been played,\
+                        enter a new one"
+                        )
                     try:
                         turn_p1 = int(
-                            input(f"Player {p1_char}\
-                                enter your move(1-9) again: "))
+                            input(
+                                f"Player {p1_char}\
+                                enter your move(1-9) again: "
+                            )
+                        )
                     except ValueError:
                         print("U have to enter a digit")
             player_moves.append(turn_p1)
-            my_board = brd.update_board(
-                my_board, turn_p1, player_characters[0])
+            my_board = brd.update_board(my_board, turn_p1, player_characters[0])
             brd.print_board(my_board)
             if brd.check_win_conditions(my_board):
                 print(f"Player {player_characters[0]} won")
@@ -108,24 +122,30 @@ def play():
 
             turn_p2, p1_char = p2.move_player(player_characters[1])
             while turn_p2 in player_moves:
-                while (not (str(turn_p2).isdigit()) or turn_p2
-                       not in range(1, 10) or turn_p2 in player_moves):
+                while (
+                    not (str(turn_p2).isdigit())
+                    or turn_p2 not in range(1, 10)
+                    or turn_p2 in player_moves
+                ):
                     if turn_p2 not in range(1, 10):
-                        print(
-                            "The number hast to be in range 1-9")
+                        print("The number hast to be in range 1-9")
                     if turn_p2 in player_moves:
-                        print("This move has already been played,\
-                            enter a new one")
+                        print(
+                            "This move has already been played,\
+                            enter a new one"
+                        )
                     try:
                         turn_p2 = int(
-                            input(f"Player {player_characters[1]}\
-                                enter your move(1-9) again: "))
+                            input(
+                                f"Player {player_characters[1]}\
+                                enter your move(1-9) again: "
+                            )
+                        )
                     except ValueError:
                         print("U have to enter a digit")
 
             player_moves.append(turn_p2)
-            my_board = brd.update_board(
-                my_board, turn_p2, player_characters[1])
+            my_board = brd.update_board(my_board, turn_p2, player_characters[1])
             brd.print_board(my_board)
             if brd.check_win_conditions(my_board):
                 print(f"Player {player_characters[1]} won")

@@ -1,6 +1,6 @@
 from PIL import Image
 
-mac = Image.open('mac.png')
+mac = Image.open("mac.png")
 print(type(mac))
 # mac.show()
 print(mac.size)

@@ -16,8 +16,8 @@ import datetime
 
 
 d1 = datetime.date(2015, 3, 11)
-print('d1:', d1)
+print("d1:", d1)
 
 d2 = d1.replace(year=1990)
-print('d2:', d2)
+print("d2:", d2)
 print(d1 - d2)

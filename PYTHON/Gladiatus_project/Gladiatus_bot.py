@@ -63,17 +63,23 @@ def fb_start_up():
     from selenium.webdriver.chrome import service
     from selenium.webdriver.common.by import By
 
-    from Encrypting_lib import (decrypt, encrypt, load_key_1, load_key_2,
-                                load_key_3, write_key_1, write_key_2,
-                                write_key_3)
+    from Encrypting_lib import (
+        decrypt,
+        encrypt,
+        load_key_1,
+        load_key_2,
+        load_key_3,
+        write_key_1,
+        write_key_2,
+        write_key_3,
+    )
 
     # Expedition function
     def expedition():
         # the expedtion
         try:
             time.sleep(3)
-            driver.find_element(
-                By.XPATH, "/html/body/div[1]/div/div[4]/div[8]/a")
+            driver.find_element(By.XPATH, "/html/body/div[1]/div/div[4]/div[8]/a")
             time.sleep(2)
             cooldown_bar_e = False
         except NoSuchElementException:
@@ -84,21 +90,26 @@ def fb_start_up():
         if cooldown_bar_e is False:
             # This part of code serves for the expedition tab to even open so we could locate the opponents later on
             time.sleep(10)
-            expedition_loc = driver.find_element_by_xpath("//div[@id='cooldown_bar_expedition']//a["
-                                                          "@class='cooldown_bar_link']")
+            expedition_loc = driver.find_element_by_xpath(
+                "//div[@id='cooldown_bar_expedition']//a[" "@class='cooldown_bar_link']"
+            )
             time.sleep(2)
             expedition_loc.click()
             time.sleep(2)
 
             class ExpeditionOpponents:
                 expedition_1 = driver.find_element_by_xpath(
-                    "//div[@id='main_inner']//div[1]//div[2]//button[1]")
+                    "//div[@id='main_inner']//div[1]//div[2]//button[1]"
+                )
                 expedition_2 = driver.find_element_by_xpath(
-                    "//div[@id='main_inner']//div[1]//div[2]//button[1]")
+                    "//div[@id='main_inner']//div[1]//div[2]//button[1]"
+                )
                 expedition_3 = driver.find_element_by_xpath(
-                    "//div[@id='main_inner']//div[1]//div[2]//button[1]")
+                    "//div[@id='main_inner']//div[1]//div[2]//button[1]"
+                )
                 expedition_4 = driver.find_element_by_xpath(
-                    "//div[@id='main_inner']//div[1]//div[2]//button[1]")
+                    "//div[@id='main_inner']//div[1]//div[2]//button[1]"
+                )
 
             time.sleep(3)
 
@@ -137,24 +148,24 @@ def fb_start_up():
         if cooldown_bar_d is False:
             # This part of code serves for the expedition tab to even open so we could locate the opponents later on
             time.sleep(10)
-            dungeon_loc = driver.find_element_by_xpath("//div[@id='cooldown_bar_dungeon']//a["
-                                                       "@class='cooldown_bar_link']")
+            dungeon_loc = driver.find_element_by_xpath(
+                "//div[@id='cooldown_bar_dungeon']//a[" "@class='cooldown_bar_link']"
+            )
             time.sleep(2)
             dungeon_loc.click()
             time.sleep(2)
             try:
-                beginner = driver.find_element_by_xpath(
-                    "//input[@value='Normální']")
-                advanced = driver.find_element_by_xpath(
-                    "//input[@value='Pokročilý']")
+                beginner = driver.find_element_by_xpath("//input[@value='Normální']")
+                advanced = driver.find_element_by_xpath("//input[@value='Pokročilý']")
                 if dungeon_difficulty == "advanced":
                     advanced.click()
                 elif dungeon_difficulty == "beginner":
                     beginner.click()
             except NoSuchElementException:
-                ""
+                """"""
             dungeon_opponent = driver.find_element_by_xpath(
-                '//img[@src="9379/img/combatloc.gif"]')
+                '//img[@src="9379/img/combatloc.gif"]'
+            )
             time.sleep(5)
             dungeon_opponent.click()
 
@@ -171,25 +182,25 @@ def fb_start_up():
     # For now I am going to store all keys in one directory but with time i want to try reading the keys from server
     # and I wanna store the passwords encrypted on server
     # Decrypting 1
-    with open('key_1.txt', 'r+') as key_11:
+    with open("key_1.txt", "r+") as key_11:
         for lines_1 in key_11:
             lines_1 = str(lines_1)
     # Decrypting 1 seems ok
-    decrypt('Hesla.txt', key=lines_1)
+    decrypt("Hesla.txt", key=lines_1)
 
     # Decrypting 2
-    with open('key_2.txt', 'r+') as key_22:
+    with open("key_2.txt", "r+") as key_22:
         for lines_2 in key_22:
             lines_2 = str(lines_2)
         # Decrypting 2 seems ok aswell
-    decrypt('Hesla.txt', key=lines_2)
+    decrypt("Hesla.txt", key=lines_2)
 
     # Decrypting 3
-    with open('key_3.txt', 'r+') as key_33:
+    with open("key_3.txt", "r+") as key_33:
         for lines_3 in key_33:
             lines_3 = str(lines_3)
         # Decrypting 3 seems ok aswell
-    decrypt('Hesla.txt', key=lines_3)
+    decrypt("Hesla.txt", key=lines_3)
 
     # Writing key 1
     write_key_1()
@@ -203,7 +214,7 @@ def fb_start_up():
     # The block of writing keys is ok aswell
 
     # In this block of code we basically read the password and name from txt file, In future I want to encrypt this
-    password_email = open('Hesla.txt', "r")
+    password_email = open("Hesla.txt", "r")
     email = password_email.readline()
     email = email.strip("\n")
     password = password_email.readline()
@@ -234,18 +245,19 @@ def fb_start_up():
     # Later on I will want to get to know where do they have the driver without knowing the exact location before.
     # and probably know their username
     webdriver_service = service.Service(
-        'C:\\Users\\vojta\\OneDrive\\Dokumenty\\chromedriver.exe')
+        "C:\\Users\\vojta\\OneDrive\\Dokumenty\\chromedriver.exe"
+    )
     webdriver_service.start()
     driver = webdriver.Remote(
-        webdriver_service.service_url, webdriver.DesiredCapabilities.CHROME)
-    driver.get('https://s36-cz.gladiatus.gameforge.com/game/index.php')
+        webdriver_service.service_url, webdriver.DesiredCapabilities.CHROME
+    )
+    driver.get("https://s36-cz.gladiatus.gameforge.com/game/index.php")
     # With this part of code we handle the error when it does not have enough time so it does not find the element
     time.sleep(2)
     driver.maximize_window()
     # Here you tell the driver to click the facebook login icon
     # and u tell him beforehand what is the main window
-    facebook_login = driver.find_element_by_class_name(
-        "facebook-login-button-icon")
+    facebook_login = driver.find_element_by_class_name("facebook-login-button-icon")
     time.sleep(2)
     # Here you switch from the main window to the popup window
     parent_window = driver.current_window_handle
@@ -255,22 +267,22 @@ def fb_start_up():
     handles.remove(parent_window)
     driver.switch_to.window(handles.pop())
     # Here you are typing your email to facebook and handling time error at the same time
-    email_colon = driver.find_element_by_name('email')
+    email_colon = driver.find_element_by_name("email")
     email_colon.send_keys(email)
     time.sleep(1)
 
     # The same but with password here
-    password_colon = driver.find_element_by_name('pass')
+    password_colon = driver.find_element_by_name("pass")
     password_colon.send_keys(password)
     time.sleep(1)
 
     # Here you click the login button after you've put in your password and email
-    login_button = driver.find_element_by_name('login')
+    login_button = driver.find_element_by_name("login")
     login_button.click()
     driver.switch_to.window(parent_window)
     time.sleep(5)
     # Here u click that you wanna play the game and it redirects u to page with your accs
-    gladiatus_play_button = driver.find_element_by_link_text('HRÁT')
+    gladiatus_play_button = driver.find_element_by_link_text("HRÁT")
     # Hre u click the button start playing of the last account you played on
     time.sleep(5)
     gladiatus_play_button.click()
@@ -278,7 +290,8 @@ def fb_start_up():
     # window_before = driver.window_handles[0] (If i want to use this part of code I would have to have problem, when
     # I want to reuse the first window after I switched to the second)
     first_acc_bttn = driver.find_element_by_xpath(
-        "//div[@class='rt-tr-group open']//span[normalize-space()='Hrát']")
+        "//div[@class='rt-tr-group open']//span[normalize-space()='Hrát']"
+    )
     first_acc_bttn.click()
     window_after = driver.window_handles[1]
     time.sleep(2)
@@ -287,8 +300,7 @@ def fb_start_up():
     # Here I am trying to handle the error when it stops on loading screen
     try:
         time.sleep(2)
-        driver.find_element_by_class_name(
-            'sk-spinner center-spinner ball-grid-pulse')
+        driver.find_element_by_class_name("sk-spinner center-spinner ball-grid-pulse")
     except NoSuchElementException:
         error = True
     if error is False:

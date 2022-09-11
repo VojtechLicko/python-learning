@@ -16,14 +16,14 @@ def genfibon(n):
     b = 1
     for i in range(n):
         yield a
-        a, b = b, a+b
+        a, b = b, a + b
 
 
 for num in genfibon(20):
     print(num)
 
 
-s = 'hello'
+s = "hello"
 # Iterate over string
 for let in s:
     print(let)
