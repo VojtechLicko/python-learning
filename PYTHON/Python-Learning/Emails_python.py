@@ -1,4 +1,4 @@
-# import getpass  # to get password
+import getpass  # to get password
 # import imaplib
 import smtplib
 

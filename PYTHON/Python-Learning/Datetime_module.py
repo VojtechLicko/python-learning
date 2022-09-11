@@ -4,7 +4,7 @@ import datetime
 # from datetime import datetime
 
 # mytime = datetime.time(2, 1, 3, 5)
-
+# U can take string and parse it to datetime object
 # print(mytime)
 # print(mytime.microsecond)
 # print(type(mytime))
