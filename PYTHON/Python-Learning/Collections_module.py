@@ -11,7 +11,7 @@ lst = [1, 2, 2, 2, 2, 3, 3, 3, 1, 2, 1, 12, 3, 2, 32, 1, 21, 1, 223, 1]
 print(Counter(lst))
 x = (Counter("Hello World I am pritty good"))
 
-
+dict
 # defaultdict is a dictionary-like object which provides
 #  all methods provided by a dictionary but takes a first argument
 # (default_factory) as a default data type for the dictionary.
