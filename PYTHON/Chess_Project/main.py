@@ -8,27 +8,31 @@ WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Chess Game")
 WHITE = (255, 255, 255)
 FPS = 60
-# CHESS_BOARD_IMAGE = pygame.image.load(os.path.join("Assets", "Chessboard.png"))
-# CHESS_BOARD_IMAGE = pygame.transform.scale(CHESS_BOARD_IMAGE, (800, 800))
+
 COORDS = []
 
 
 def draw_window():
     # WIN.blit(CHESS_BOARD_IMAGE, (0, 0))
+    pieces = Pieces()
     create_chessboard(WIDTH, HEIGHT, WINDOW)
-    WINDOW.blit(Pieces.BLACK_ROOK, (0, 0))
+    pieces.place_pieces(WINDOW)
     pygame.display.update()
 
 
 def main():
     clock = pygame.time.Clock()
     run = True
+
     while run:
         clock.tick(FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+            if event.type == pygame.KEYDOWN:
+                pass
         draw_window()
+
     pygame.quit()
 
 

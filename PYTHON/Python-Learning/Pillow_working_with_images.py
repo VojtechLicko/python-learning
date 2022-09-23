@@ -13,6 +13,5 @@ mac = mac.resize((8000, 12000))  # to resize
 mac = mac.rotate(180)
 # Color transperency RGBA
 mac.putalpha(128)  # setting transperency
-
 mac.save("working_with_images_image.png")
 mac.show()
