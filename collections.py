@@ -1,4 +1,4 @@
-from collections import Counter, defaultdict, namedtuple
+from collections import Counter, defaultdict, namedtuple,
 
 # Basically alternative and an adition to built-in python containers
 
@@ -10,8 +10,9 @@ lst = [1, 2, 2, 2, 2, 3, 3, 3, 1, 2, 1, 12, 3, 2, 32, 1, 21, 1, 223, 1]
 
 print(Counter(lst))
 x = (Counter("Hello World I am pritty good"))
-
-dict
+y = (Counter("a a a  b  c c  d d d d  e e e e e"))
+print("Most common")
+print(y.most_common(3))
 # defaultdict is a dictionary-like object which provides
 #  all methods provided by a dictionary but takes a first argument
 # (default_factory) as a default data type for the dictionary.
