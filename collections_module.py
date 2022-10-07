@@ -1,4 +1,4 @@
-from collections import Counter, defaultdict, namedtuple,
+from collections import Counter, defaultdict, namedtuple
 
 # Basically alternative and an adition to built-in python containers
 
